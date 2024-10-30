@@ -1,0 +1,7 @@
+package org.example.botvk.exception;
+
+public class DataValidationException extends RuntimeException {
+    public DataValidationException(String message) {
+        super(message);
+    }
+}
