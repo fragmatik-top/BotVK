@@ -27,11 +27,24 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation ("org.springframework.cloud:spring-cloud-starter-vault-config")
+
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation ("com.squareup.okhttp3:mockwebserver")
+    testImplementation ("io.projectreactor:reactor-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom ("org.springframework.cloud:spring-cloud-dependencies:2022.0.4")
+    }
 }
 
 tasks.withType<Test> {

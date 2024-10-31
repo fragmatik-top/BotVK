@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationEvent;
 
 @Getter
 public class VkMessageEvent extends ApplicationEvent {
+
     private int userId;
     private String text;
 

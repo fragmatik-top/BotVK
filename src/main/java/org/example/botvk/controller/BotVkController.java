@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class BotVkController {
+
     private final VkEventPublisher vkEventPublisher;
+    private final String code;
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> handlerEvent(@RequestBody VkRequest vkRequest) {
         if ("confirmation".equals(vkRequest.getType())) {
-            return ResponseEntity.ok("3c6d9d27");
+            return ResponseEntity.ok(code);
         }
         vkEventPublisher.publishEvent(vkRequest);
         return ResponseEntity.ok("ok");

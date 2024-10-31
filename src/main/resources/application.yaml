@@ -6,5 +6,22 @@ spring:
         max-size: 10
         queue-capacity: 25
         thread-name-prefix: Async-
+  cloud:
+    vault:
+      uri: https://localhost:8080
+      authentication: TOKEN
+      token: ${SPRING_CLOUD_VAULT_TOKEN}
+      kv:
+        enabled: true
+        backend: secret
+        default-context: bot
+bot:
+  vk:
+    apiVersion: "5.199"
+    code: "7b7782b2"
 
-version-Api: 5.199
+server:
+  port: 8080
+
+
+

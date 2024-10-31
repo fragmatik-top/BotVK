@@ -4,6 +4,7 @@ import lombok.Data;
 import org.example.botvk.exception.AsyncExceptionHandler;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -22,6 +23,7 @@ public class AsyncConfig implements AsyncConfigurer {
     private int queueCapacity;
     private String threadNamePrefix;
 
+    @Bean(name = "asyncExecutor")
     @Override
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

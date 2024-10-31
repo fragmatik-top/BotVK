@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class VkMessageEventFactory implements VkEventFactory<VkMessageEvent> {
+
     @Override
     public boolean supports(String type) {
         return type.equals("message_new");

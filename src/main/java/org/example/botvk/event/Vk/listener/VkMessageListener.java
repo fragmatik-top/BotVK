@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class VkMessageListener {
+
     private final BotVkServiceImpl botVkService;
 
-    @Async
+    @Async("asyncExecutor")
     @EventListener
     public void onVkMessageEvent(VkMessageEvent event) {
         String response = String.format("Вы написали: %s", event.getText());
